@@ -1,0 +1,65 @@
+{
+	"Section1": "Data Location Services -----------------------------------------------------",
+	"repository":
+	{
+		"presentations":"/Users/smoffat/Documents/presentations",
+		"pages":"/Users/smoffat/Documents/presentations-pages"
+	},
+	"webRoot":"http://github.searshc.com/pages/smoffat/presentations",
+	
+	"database":
+	{
+		"driver": "sqlite3",
+		"database": "/Users/smoffat/Sites/deckcollab/deckcollab.db"
+	},
+
+	"solr":
+	{
+		"uri": "http://localhost:8080/solr/deckcollab/"
+	},
+
+	"Section2": "Command Line Tool Locations ------------------------------------------------",
+	"tools":
+	{
+		"git_version":
+		{
+			"path": "/usr/bin/git",
+			"args": "--git-dir={GIT_DIR} --work-tree={GIT_WORKDIR} log -1 --pretty=oneline | cut -f1 -d' '"
+		},
+		"soffice":
+		{ 
+			"path": "/Applications/LibreOffice.app/Contents/MacOS/soffice",
+			"args": "'-env:UserInstallation=file:///tmp/LibO_Conversion' --headless --invisible --convert-to pdf:impress_pdf_Export --outdir"
+		},
+
+		"gs":
+		{
+			"path": "/usr/local/bin/gs",
+			"args": "-dTextAlphaBits=4 -dGraphicsAlphaBits=4 -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -o"
+		},
+
+		"pdftotext":
+		{
+			"path": "/usr/local/bin/pdftotext",
+			"args": "-enc ASCII7 -layout"
+		},
+
+		"pdfimages":
+		{
+			"path": "/usr/local/bin/pdfimages",
+			"args": "-j"
+		},
+
+		"mogrify":
+		{
+			"path": "/usr/local/bin/mogrify",
+			"args": "-format png"
+		},
+
+		"convert":
+		{
+			"path": "/usr/local/bin/convert",
+			"args": "-resize 800x800"
+		}
+	}
+}

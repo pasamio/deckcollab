@@ -1,0 +1,23 @@
+/Applications/LibreOffice.app/Contents/MacOS/soffice "-env:UserInstallation=file:///tmp/LibO_Conversion" --headless --invisible --convert-to pdf:impress_pdf_Export a3s_dev_platform.pptx
+
+gs -o a3s_dev_platform-p%03d.png -sDEVICE=png16m -r150 a3s_dev_platform.pdf 
+
+pdftotext -enc ASCII7 -nopgbrk -layout a3s_dev_platform.pdf
+pdftotext -enc ASCII7 -layout a3s_dev_platform.pdf
+
+
+mogrify -format png *.ppm
+
+
+pdfimages a3s_dev_platform.pdf images/a3s_dev_platform
+
+
+
+<?php
+$file = file_get_contents('a3s_dev_platform.txt');
+$pages = explode("\f", $file);
+echo implode("\n\n========================================================================================================\n\n", $pages);
+
+
+
+
